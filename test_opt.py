@@ -1,6 +1,17 @@
 from utils.density.density_dataset import buildDensityDataset
 from sklearn.metrics import mean_absolute_error, mean_squared_error
-from utils.data_constants import IMAGENET_DEFAULT_MEAN, IMAGENET_DEFAULT_STD
+from utils.data_constants import (
+    IMAGENET_DEFAULT_MEAN,
+    IMAGENET_DEFAULT_STD,
+    FDST_MEAN,
+    FDST_STD,
+    Mall_MEAN,
+    Mall_STD,
+    DB_MEAN,
+    DB_STD,
+    VSC_MEAN,
+    VSC_STD,
+)
 from emac.emac import e_mac
 from emac.output_adapters import (
     SpatialOutputAdapter,
@@ -19,16 +30,6 @@ import warnings
 import sys
 from utils.pos_embed import interpolate_pos_embed_multimae
 from emac.emac_utils import TransFuse
-
-
-FDST_MEAN = 5.512985654053338e-05
-FDST_STD = 0.00036472747476666936
-Mall_MEAN = 0.00010079495112040604
-Mall_STD = 0.00024578602478024226
-DB_MEAN = 6.164589276263647e-05
-DB_STD = 0.0004087056849705104
-VSC_MEAN = 3.835774871064186e-05
-VSC_STD = 0.0002988769296067629
 
 Normalization = {
     "FDST": {
@@ -74,13 +75,11 @@ DOMAINS = ["rgb", "density"]
 """
 inference setting
 """
-image_height, image_width = 448, 640
-data_path = "/root/nas-public-linkdata/data/Mall"
-dataset = "Mall"
-weight_path = "/root/nas-public-linkdata/ckpts/MultiMAE/weight/mall-model.pth"
-# image_size = 320
-# image_size = (480, 640)
-# image_size = 512
+image_height, image_width = 320, 320
+data_path = "path/to/data"
+dataset = "FDST"
+weight_path = "path/to/weight"
+
 
 input_adapters = {
     domain: DOMAIN_CONF[domain]["input_adapter"](
