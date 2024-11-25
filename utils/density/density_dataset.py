@@ -45,7 +45,7 @@ class DensityDroneBird(Dataset):
         self.STD = STD
         with open(
             os.path.join(
-                data_root, "{}.json".format("train" if split == "train" else "test")
+                data_root, "{}.json".format(split)
             ),
             "r",
         ) as f:
@@ -218,7 +218,7 @@ class DensityVSCrowd(Dataset):
         self.stride = stride
         self.image_ids = glob.glob(
             os.path.join(
-                data_root, "train_*" if split == "train" else "test_*", "*.jpg"
+                data_root, f"{}_*".format('train' if split != 'test' else 'test'), "*.jpg"
             )
         )
         self.MEAN = MEAN
@@ -244,6 +244,10 @@ class DensityVSCrowd(Dataset):
 
             self.seqclips.append(clip[::-1])
         print("cliped")
+        if self.split == "train":
+            self.seqclips = self.seqclips[: -int(len(self.seqclips) * 0.1)]
+        elif self.split == "val":
+            self.seqclips = self.seqclips[-int(len(self.seqclips) * 0.1) :]
         if isinstance(self.max_images, int):
             start_idx = random.randint(0, max(len(self.seqclips) - self.max_images, 0))
             self.seqclips = self.seqclips[start_idx : start_idx + self.max_images]
@@ -602,7 +606,7 @@ class DensityMall(Dataset):
         self.image_ids = glob.glob(
             os.path.join(
                 self.data_root,
-                "*/*.h5",
+                f"{}/*.h5".format('train' if split != 'test' else 'test'),
             )
         )
         print("imgs get")
@@ -615,10 +619,10 @@ class DensityMall(Dataset):
             self.seqclips.append(clip[::-1])
         print("cliped")
         if self.split == "train":
-            tempseqclips = self.seqclips[:800]
+            tempseqclips = self.seqclips[:700]
             self.seqclips = tempseqclips
-        else:
-            self.seqclips = self.seqclips[800:]
+        elif self.split == 'val':
+            self.seqclips = self.seqclips[100:]
         if isinstance(self.max_images, int):
             start_idx = random.randint(0, max(len(self.seqclips) - self.max_images, 0))
             self.seqclips = self.seqclips[start_idx : start_idx + self.max_images]
