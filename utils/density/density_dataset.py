@@ -218,7 +218,7 @@ class DensityVSCrowd(Dataset):
         self.stride = stride
         self.image_ids = glob.glob(
             os.path.join(
-                data_root, f"{}_*".format('train' if split != 'test' else 'test'), "*.jpg"
+                data_root, "{}_*".format('train' if split != 'test' else 'test'), "*.jpg"
             )
         )
         self.MEAN = MEAN
@@ -606,7 +606,7 @@ class DensityMall(Dataset):
         self.image_ids = glob.glob(
             os.path.join(
                 self.data_root,
-                f"{}/*.h5".format('train' if split != 'test' else 'test'),
+                "{}/*.h5".format('train' if split != 'test' else 'test'),
             )
         )
         print("imgs get")
