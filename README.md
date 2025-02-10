@@ -1,3 +1,11 @@
+Official implementation of paper Efficient Masked Autoencoder for Video Object Counting and A Large-Scale Benchmark.
+
+# DroneBird dataset
+## Download
+TBD
+## Evaluation
+
+# E-MAC
 ## Setup
 ### create conda environment
 create conda environment from sepc_list.txt
