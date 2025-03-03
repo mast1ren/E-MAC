@@ -69,3 +69,7 @@ url={https://openreview.net/forum?id=sY3anJ8C68}
 
 # Acknowledgement
 This code is based on the [MultiMAE](https://github.com/EPFL-VILAB/MultiMAE) and [PWC-Net](https://github.com/NVlabs/PWC-Net/tree/master). We thank the authors for their excellent work.
+
+# License
+ <p xmlns:cc="http://creativecommons.org/ns#" >This work (dataset and code) is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a></p> 
+ 
