@@ -1,0 +1,65 @@
+# Input and output tasks
+in_domains: rgb-density
+out_domains: density
+extra_norm_pix_loss: False
+extra_unnorm_den_loss: False
+# Architecture
+model: emac_base
+decoder_dim: 256
+input_size: 512
+patch_size: 16
+alphas: 1.0  # Dirichlet concentration parameter 
+num_encoded_tokens: 569
+total_num_tokens: 1024
+is_mask_inputs: False
+num_global_tokens: 1
+decoder_use_task_queries: True
+decoder_depth: 2
+# decoder_dim: 512
+
+# distributed: False
+
+# Train
+epochs: 210
+opt: adamw
+blr: 0.00035 # this is base_lr = 1e-4, lr = base_lr * batch_size / 256
+warmup_lr: 0.000001 # 1e-6
+min_lr: 0.00000001
+warmup_epochs: 15
+batch_size: 6
+hflip: 0.5
+loss_on_unmasked: True
+# fp32_output_adapters: density
+drop_path: 0.3
+weight_decay: 0.05
+# weight_decay_end: 0.01
+# task_balancer: uncertainty
+eval_freq: 1
+eval_first: False
+train_print_freq: 10
+val_print_freq: 50
+use_opt_loss: True
+use_cur_loss: True
+use_tv_loss: True
+
+# Data
+data_path: '/path/to/DroneBird' 
+dataset: 'DroneBird'
+max_train_images: 50000
+max_val_images: 40000
+max_test_images: 54514
+data_clip_size: 2
+data_stride: 1
+num_workers: 4
+
+# Wandb logging
+log_wandb: True # Set to True to log to Weights & Biases
+wandb_project: 'emac'
+wandb_entity: null # Change if needed
+wandb_run_name: auto
+
+log_images_wandb: True
+log_images_freq: 1
+output_dir: '/path/to/dir' # Change directory if neede
+
+ckpt_multi: 'cfgs/multimae-b_98_rgb+-depth-semseg_1600e_multivit-afff3f8c.pth'

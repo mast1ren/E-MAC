@@ -1,0 +1,64 @@
+# Input and output tasks
+in_domains: rgb-density
+out_domains: density
+extra_norm_pix_loss: False
+extra_unnorm_den_loss: False
+# Architecture
+model: emac_base
+decoder_dim: 256
+input_size: 512
+patch_size: 16
+alphas: 1.0  # Dirichlet concentration parameter
+num_encoded_tokens: 222
+total_num_tokens: 400
+num_global_tokens: 1
+decoder_use_task_queries: True
+decoder_depth: 2
+is_mask_inputs: False
+seed: 242
+
+
+# Train
+epochs: 200
+opt: adamw
+blr: 0.00035 # this is base_lr = 1e-4, lr = base_lr * batch_size / 256
+warmup_lr: 0.000001 # 1e-6
+min_lr: 0.00000001
+warmup_epochs: 15
+batch_size: 1
+# batch_size: 8
+hflip: 0.5
+loss_on_unmasked: True
+drop_path: 0.3
+weight_decay: 0.05
+
+# Data
+data_path: '/path/to/FDST' # Change me
+dataset: 'FDST'
+max_train_images: 50000
+max_val_images: 400
+max_test_images: 54514
+num_workers: 4
+data_clip_size: 2
+data_stride: 1
+
+eval_freq: 1
+eval_first: False
+train_print_freq: 10
+val_print_freq: 50
+use_opt_loss: True
+use_cur_loss: True
+use_tv_loss: True
+loss_weights: {"opt": 1.0, "cur": 10.0, "tv": 20.0, "fus": 10.0}
+
+# Wandb logging
+log_wandb: False # Set to True to log to Weights & Biases
+wandb_project: 'emac'
+wandb_entity: null # Change if needed
+wandb_run_name: auto
+
+log_images_wandb: True
+log_images_freq: 1
+output_dir: '/path/to/dir' # Change directory if neede
+
+ckpt_multi: 'cfgs/multimae-b_98_rgb+-depth-semseg_1600e_multivit-afff3f8c.pth'
