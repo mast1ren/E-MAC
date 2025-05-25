@@ -5,8 +5,9 @@ Official PyTorch implementation of the paper "Efficient Masked AutoEncoder for V
 百度网盘：
 [Link](https://pan.baidu.com/s/1UZ34XcqKMiVMZUuTVV3EpQ?pwd=t3tv)
 提取码：t3tv
+
 Google Drive:
-Coming soon
+[Line](https://drive.google.com/drive/folders/1rUrb5pemhujM16VA0S6ok6zeUF5uB4ZP?usp=drive_link)
 
 ## Evaluation
 put the result `.txt` file on the root of dataset and run the script `eval.py` in `toolkit` folder.
