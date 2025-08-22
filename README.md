@@ -39,6 +39,13 @@ emac
 ### Download the pretrained model
 Download the pretrained weight of `MultiMAE` and `PWC-Net` to `./cfgs`
 
+## Training
+```bash
+bash density_opt.sh
+```
+
+Path of the config file should be set in `density_opt.sh`.
+
 ## Inference
 ```bash
 python test_opt.py
