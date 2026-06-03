@@ -3,8 +3,8 @@ Official PyTorch implementation of the paper "Efficient Masked AutoEncoder for V
 # DroneBird dataset
 ## Download
 百度网盘：
-[Link](https://pan.baidu.com/s/1UZ34XcqKMiVMZUuTVV3EpQ?pwd=t3tv)
-提取码：t3tv
+[Link](https://pan.baidu.com/s/1ZW9i-ifRT1sZ4x7Lva59Gw?pwd=1895)
+提取码：1895
 
 Google Drive:
 [Link](https://drive.google.com/drive/folders/1rUrb5pemhujM16VA0S6ok6zeUF5uB4ZP?usp=drive_link)
